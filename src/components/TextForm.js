@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 
 export default function TextForm(props) {
-  const [text,setText]=useState('Enter text here');
+  const [text,setText]=useState('');
   const handleUpClick=()=>{
     //console.log('Uppercase was clicked');
     let newText=text.toUpperCase();
@@ -62,7 +62,7 @@ export default function TextForm(props) {
     <div className="container">
       <div className="mb-3">
         <label htmlFor="exampleFormControlTextarea1" className="form-label">
-          <h1>{props.heading}</h1>
+          <h1 className={`text-${props.mode==='light'?'dark':'light'}`}>{props.heading}</h1>
         </label>
         <textarea
           className="form-control"
@@ -70,6 +70,7 @@ export default function TextForm(props) {
           value={text}
           onChange={handleOnChange}
           rows="8"
+          style={{backgroundColor:props.mode==='light'?'white':'grey'}}
         ></textarea>
       </div>
       <button className="btn btn-primary" onClick={handleUpClick}>Convert to Uppercase</button>
@@ -79,12 +80,12 @@ export default function TextForm(props) {
       <button className="btn btn-primary" onClick={handleCopy}>Copy Text</button>
       <button className="btn btn-primary mx-3" onClick={handleExtraSpace}>remove Extra Spaces</button>
       </div>
-      <div className="container my-3">
+      <div className={`container my-3 text-${props.mode==='light'?'dark':'light'}`}>
         <h1>Your text summary</h1>
-        <p>{text.split(" ").length} words, {text.length} characters . ..... {g}</p>
+        <p>{text.split(" ").length} words, {text.length} characters</p>
         <p>{0.008*text.split(" ").length} - Minutes read</p>
         <h3>Preview</h3>
-        <p>{text}</p>
+        <p>{text.length>0?text:'Enter something in the textbox above to preview it here'}</p>
       </div>
     </>
   );
