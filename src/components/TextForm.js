@@ -6,30 +6,34 @@ export default function TextForm(props) {
     //console.log('Uppercase was clicked');
     let newText=text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to uppercase","success");
   }
   const handleExtraSpace=()=>{
     // setText(text.replace(/\s+/g,' ').trim())
     let newtext=text.split(/[ ]+/);
     setText(newtext.join(" "));
+    props.showAlert("Removed extra spaces","success");
   }
   const handleCopy=()=>{
     let text=document.getElementById('exampleFormControlTextarea1');
     text.select();
     navigator.clipboard.writeText(text.value);
     alert('Copied to clipboard');
+    props.showAlert("Copied to clipboard","success")
   }
   const handleClrClick=()=>{
     setText('');
+    props.showAlert("Text cleared","success");
   }
   const handleLowClick=()=>{
     let newText=text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to lowercase","success");
   }
   const handleOnChange=(event)=>{
     //console.log('On change');
     setText(event.target.value);
   }
-  let g=text.split(" ").length;
   const handleSenClick=()=>{
     let arr=text.split(" ");
     if(arr.length>1)
@@ -54,6 +58,7 @@ export default function TextForm(props) {
       let newText=text.charAt(0).toUpperCase()+text.slice(1).toLowerCase();
       setText(newText);
     }
+    props.showAlert("Converted to sentence case","success");
   }
   // text="abcd" - wrong way to change state !
   // setText("abcd") - correct way to change state
@@ -73,7 +78,7 @@ export default function TextForm(props) {
           style={{backgroundColor:props.mode==='light'?'white':'grey'}}
         ></textarea>
       </div>
-      <button className="btn btn-primary" onClick={handleUpClick}>Convert to Uppercase</button>
+      <button className="btn btn-primary" id="U" onClick={handleUpClick} >Convert to Uppercase</button>
       <button className="btn btn-primary mx-3" onClick={handleLowClick}>Convert to Lowercase</button>
       <button className="btn btn-primary" onClick={handleSenClick}>Convert to Sentence Case</button>
       <button className="btn btn-primary mx-3" onClick={handleClrClick}>Clear Text</button>
