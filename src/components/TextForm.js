@@ -18,7 +18,6 @@ export default function TextForm(props) {
     let text=document.getElementById('exampleFormControlTextarea1');
     text.select();
     navigator.clipboard.writeText(text.value);
-    alert('Copied to clipboard');
     props.showAlert("Copied to clipboard","success")
   }
   const handleClrClick=()=>{
