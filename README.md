@@ -1,6 +1,6 @@
-# learningReactCWH
+# TextUtils
 
-This repo stores all the codes that I wrote while learning react from cwh.
+Basic string manipulator app that I designed while learning React from CWH.
 
 # Getting Started with Create React App
 
