@@ -5,12 +5,10 @@ import React, { useState } from "react"
 import Navbar from './components/Navbar.js'
 import TextForm from './components/TextForm.js'
 import Alert from './components/Alert';
-import { createRoot } from 'react-dom/client'
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
 } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState('light'); // whether dark mode is enabled or not
@@ -71,10 +69,10 @@ function App() {
 
         <div className='container my-3'>
           <Routes>
-            <Route exact path="/about" element={<About />}/>
+            <Route exact path="/about" element={<About mode={mode}/>}/>
             <Route exact path="/" element={<TextForm heading='Enter text to analyze below' mode={mode} showAlert={showAlert} />}/>
           </Routes>
-
+          {/* <TextForm heading='Enter text to analyze below' mode={mode} showAlert={showAlert} /> */}
           {/* <About/> */}
         </div>
       </Router>
