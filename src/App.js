@@ -40,9 +40,9 @@ function App() {
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
-      document.body.style.backgroundColor = 'grey';
+      document.body.style.backgroundColor = '#737a80';
       showAlert("Dark mode has been enabled", "success");
-      document.title = 'TextUtils - DarkMode'
+      // document.title = 'TextUtils - DarkMode'
       // setInterval(()=>{
       //   document.title='Install TextUtils now'
       // },2000);
@@ -54,7 +54,7 @@ function App() {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success");
-      document.title = 'TextUtils - LightMode'
+      // document.title = 'TextUtils - LightMode'
     }
   }
   return (

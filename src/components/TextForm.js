@@ -74,22 +74,22 @@ export default function TextForm(props) {
           value={text}
           onChange={handleOnChange}
           rows="8"
-          style={{backgroundColor:props.mode==='light'?'white':'grey'}}
+          style={{backgroundColor:props.mode==='light'?'white':'#b7c1c9'}}
         ></textarea>
       </div>
-      <button className="btn btn-primary mx-1 my-1" id="U" onClick={handleUpClick} >Convert to Uppercase</button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>Convert to Lowercase</button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handleSenClick}>Convert to Sentence Case</button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handleClrClick}>Clear Text</button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handleExtraSpace}>remove Extra Spaces</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" id="U" onClick={handleUpClick} >Convert to Uppercase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>Convert to Lowercase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleSenClick}>Convert to Sentence Case</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClrClick}>Clear Text</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpace}>remove Extra Spaces</button>
       </div>
       <div className={`container my-3 text-${props.mode==='light'?'dark':'light'}`}>
         <h1>Your text summary</h1>
         <p>{text.split(" ").filter((element)=>{return element.length>0}).length} words, {text.length} characters</p>
         <p>{0.008*text.split(" ").filter((element)=>{return element.length>0}).length} - Minutes read</p>
         <h3>Preview</h3>
-        <p>{text.length>0?text:'Enter something in the textbox above to preview it here'}</p>
+        <p>{text.length>0?text:'Nothing to preview'}</p>
       </div>
     </>
   );

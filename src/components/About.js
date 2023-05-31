@@ -30,13 +30,13 @@ export default function About(props) {
     };
     const darkMode={
         color:'white', 
-        backgroundColor:'black'
+        backgroundColor:'#31363b'
     }
     const getStyle = (mode) => {
     return mode === "dark" ? darkMode : lightMode;
   };
     return (
-        <div className="container" style={getStyle(props.mode)}>
+        <div className="container" >
             <h1>About Us</h1>
             <div className="accordion" id="accordionExample" style={getStyle(props.mode)}>
                 <div className="accordion-item" style={getStyle(props.mode)}>
